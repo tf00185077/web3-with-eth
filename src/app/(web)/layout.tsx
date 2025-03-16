@@ -5,6 +5,7 @@ import ThemeProvider from "../ui/theme-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { MainLayoutSidebar } from "@/components/Sidebar";
 import { SessionProvider } from "next-auth/react";
+import { SidebarTrigger } from '@/components/ui/sidebar';
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
           <SessionProvider>
             <SidebarProvider>
               <MainLayoutSidebar />
+              <SidebarTrigger />
               {children}
             </SidebarProvider>
           </SessionProvider>

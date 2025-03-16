@@ -18,9 +18,8 @@ declare module "next-auth" {
    */
   interface User {
     id: string;
-    // 添加其他你需要的字段，例如：
-    role?: string;
-    // ...
+    name: string;
+    email: string;
   }
 }
 
