@@ -9,8 +9,12 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { useRouter } from "next/navigation";
 const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
+  email: z.string().email({
+    message: "Invalid email",
+  }),
+  password: z.string().min(6, {
+    message: "Password must be at least 6 characters",
+  }),
 });
 
 export function LoginForm({ onSuccess }: { onSuccess: () => void; }) {
@@ -24,16 +28,9 @@ export function LoginForm({ onSuccess }: { onSuccess: () => void; }) {
       password: "",
     },
   });
-  const onSubmit = async () => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsError(false);
     setErrorMessage("");
-
-    const isValidForm = form.formState.isValid;
-    if (!isValidForm) {
-      setIsError(true);
-      setErrorMessage("Invalid form");
-      return;
-    }
 
     try {
       const response = await fetch("/api/auth/[...nextauth]", {
@@ -41,7 +38,7 @@ export function LoginForm({ onSuccess }: { onSuccess: () => void; }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form.getValues()),
+        body: JSON.stringify(values),
       });
 
       const data = await response.json();
@@ -73,8 +70,8 @@ export function LoginForm({ onSuccess }: { onSuccess: () => void; }) {
               </FormControl>
               <FormDescription>
                 It will be used to login.
+                {form.formState.errors.email && <FormMessage />}
               </FormDescription>
-              <FormMessage />
             </FormItem>
           )}
         />
@@ -89,8 +86,8 @@ export function LoginForm({ onSuccess }: { onSuccess: () => void; }) {
               </FormControl>
               <FormDescription>
                 It will be used to login.
+                {form.formState.errors.password && <FormMessage />}
               </FormDescription>
-              <FormMessage />
             </FormItem>
           )}
         />

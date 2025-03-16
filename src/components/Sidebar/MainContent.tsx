@@ -1,9 +1,9 @@
 import { auth } from "@/lib/utils";
 export async function MainContent() {
-  const isLoggedIn = await auth.auth();
+  const session  = await auth.auth();
   return (
     <div>
-      {isLoggedIn ? <div>You are logged</div> : <div>You are not logged in</div>}
+      {session?.user ? <div>You are logged in </div> : <div>You are not logged in</div>}
     </div>
   );
 }
