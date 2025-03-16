@@ -2,20 +2,21 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
   SidebarHeader,
 } from "@/components/ui/sidebar";
 import { MainContent } from "./MainContent";
+import { UserData } from "./UserData";
 export function MainLayoutSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader />
+      <SidebarHeader>
+        <UserData />
+      </SidebarHeader>
       <SidebarContent>
         <MainContent />
-        <SidebarGroup />
-        < SidebarGroup />
       </SidebarContent>
-      < SidebarFooter />
+      <SidebarFooter>
+      </SidebarFooter>
     </Sidebar>
   );
 }

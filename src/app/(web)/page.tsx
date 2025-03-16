@@ -1,7 +1,9 @@
+import { SignupForm } from "@/components/Auth/SignupForm";
+
 export default function Home() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <SignupForm />
     </div>
   );
 }
