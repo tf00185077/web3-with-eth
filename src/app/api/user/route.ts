@@ -7,6 +7,7 @@ const schema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
 });
+// 註冊用戶
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const { username, email, password } = body;
