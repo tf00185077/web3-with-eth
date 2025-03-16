@@ -5,16 +5,19 @@ import {
   SidebarGroup,
   SidebarHeader,
 } from "@/components/ui/sidebar";
+import { MainContent } from "./MainContent";
 
-export function AppSidebar() {
+export function MainLayoutSidebar() {
+  // const { data: session } = useSession();
   return (
     <Sidebar>
       <SidebarHeader />
       <SidebarContent>
+        <MainContent />
         <SidebarGroup />
-        <SidebarGroup />
+        < SidebarGroup />
       </SidebarContent>
-      <SidebarFooter />
+      < SidebarFooter />
     </Sidebar>
   );
 }

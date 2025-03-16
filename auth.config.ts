@@ -6,7 +6,6 @@ export const authConfig = {
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
-      console.log('auth', auth);
       const isLoggedIn = !!auth?.user;
       const isOnWallet = nextUrl.pathname.startsWith('/wallet');
       if (isOnWallet) {
