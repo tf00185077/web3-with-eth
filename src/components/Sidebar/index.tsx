@@ -6,7 +6,11 @@ import {
 } from "@/components/ui/sidebar";
 import { MainContent } from "./MainContent";
 import { UserData } from "./UserData";
-export function MainLayoutSidebar() {
+import { AuthDialog } from "@/components/Dialog/AuthDialog";
+import { auth } from "@/lib/utils";
+import { LogoutButton } from "@/components/Auth/LogoutButton";
+export async function MainLayoutSidebar() {
+  const isLoggedIn = await auth.auth();
   return (
     <Sidebar>
       <SidebarHeader>
@@ -16,6 +20,7 @@ export function MainLayoutSidebar() {
         <MainContent />
       </SidebarContent>
       <SidebarFooter>
+        {isLoggedIn ? <LogoutButton /> : <AuthDialog />}
       </SidebarFooter>
     </Sidebar>
   );

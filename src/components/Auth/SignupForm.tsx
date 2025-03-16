@@ -20,7 +20,7 @@ const formSchema = z.object({
   }),
 });
 
-export function SignupForm() {
+export function SignupForm({ onSuccess }: { onSuccess: () => void; }) {
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const form = useForm<z.infer<typeof formSchema>>({
@@ -39,6 +39,7 @@ export function SignupForm() {
     if (response.ok) {
       const data = await response.json();
       console.log(data);
+      onSuccess();
     } else {
       setIsError(true);
       const data = await response.json();
