@@ -32,7 +32,6 @@ export function SignupForm() {
     },
   });
   const onSubmit = async () => {
-    console.log(form.getValues());
     const response = await fetch("/api/user", {
       method: "POST",
       body: JSON.stringify(form.getValues()),
@@ -89,7 +88,7 @@ export function SignupForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="please type your password" {...field} />
+                <Input placeholder="please type your password" {...field} type="password" />
               </FormControl>
               <FormDescription>
                 It will be used to login.
