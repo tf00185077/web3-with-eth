@@ -3,15 +3,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Getting Started
 
 First, run the development server:
+```bash
+# install backend
+git submodule update --init --recursive
+```
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# frontend
+pnpm install
 pnpm dev
-# or
-bun dev
+# backend
+cd backend
+pnpm install
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
