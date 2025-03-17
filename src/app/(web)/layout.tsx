@@ -7,6 +7,7 @@ import { MainLayoutSidebar } from "@/components/Sidebar";
 import { SessionProvider } from "next-auth/react";
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { WalletProvider } from "@/context/WalletContext";
+import WalletInformation from "@/components/WalletInformation";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -43,7 +44,10 @@ export default function RootLayout({
               <SidebarProvider>
                 <MainLayoutSidebar />
                 <SidebarTrigger />
-                {children}
+                <div className="p-4 flex flex-col gap-4 w-screen items-start justify-start">
+                  <WalletInformation />
+                  {children}
+                </div>
               </SidebarProvider>
             </WalletProvider>
           </SessionProvider>
