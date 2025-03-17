@@ -6,16 +6,17 @@ import { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Label } from '@radix-ui/react-label';
 import { Wallet } from '@prisma/client';
-
+import { useWallet } from '@/context/WalletContext';
 export default function WalletSelector({ walletList }: { walletList: Wallet[]; }) {
-  const [walletAddress, setWalletAddress] = useState<string>('');
+  const { selectWallet } = useWallet();
+  const [walletAddress, setWalletAddress] = useState<Wallet['address']>(walletList[0].address);
   useEffect(() => {
-    console.log(walletAddress);
-  }, [walletAddress]);
+    selectWallet(walletAddress);
+  }, [walletAddress, selectWallet]);
   return (
     <RadioGroup
       className="flex flex-col gap-4 w-full"
-      defaultValue={walletList[0].id.toString()}
+      defaultValue={walletList[0].address}
       onValueChange={(value) => { setWalletAddress(value); }}
     >
       {walletList.map((wallet, index) => (

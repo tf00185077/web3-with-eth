@@ -6,6 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { MainLayoutSidebar } from "@/components/Sidebar";
 import { SessionProvider } from "next-auth/react";
 import { SidebarTrigger } from '@/components/ui/sidebar';
+import { WalletProvider } from "@/context/WalletContext";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,11 +39,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SessionProvider>
-            <SidebarProvider>
-              <MainLayoutSidebar />
-              <SidebarTrigger />
-              {children}
-            </SidebarProvider>
+            <WalletProvider>
+              <SidebarProvider>
+                <MainLayoutSidebar />
+                <SidebarTrigger />
+                {children}
+              </SidebarProvider>
+            </WalletProvider>
           </SessionProvider>
         </ThemeProvider>
       </body>
