@@ -1,4 +1,4 @@
-import { getTokenInformation } from "./helper";
+import { getTokenInformation } from "@/app/helper";
 import TokensList from "@/components/TokensList";
 export default async function Tokens() {
   const famousTokens = ['BTC', 'ETH', 'SOL', 'DOGE', 'DOT', 'LINK', 'BCH', 'LTC', 'XLM', 'XMR', 'XRP', 'ADA'];

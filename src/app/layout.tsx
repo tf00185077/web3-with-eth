@@ -9,6 +9,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 import { WalletProvider } from "@/contexts/WalletContext";
 import WalletInformation from "@/components/WalletInformation";
 import PageSelector from "@/components/PageSelector";
+import { SlotControlProvider } from "@/contexts/SlotControlContext";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -42,19 +43,21 @@ export default function RootLayout({
         >
           <SessionProvider>
             <WalletProvider>
-              <SidebarProvider>
-                <MainLayoutSidebar />
-                <SidebarTrigger />
-                <div className="p-4 flex flex-col gap-4 w-screen items-start justify-start">
-                  <WalletInformation />
-                  <PageSelector />
-                  {children}
-                </div>
-              </SidebarProvider>
+              <SlotControlProvider>
+                <SidebarProvider>
+                  <MainLayoutSidebar />
+                  <SidebarTrigger />
+                  <div className="p-4 flex flex-col gap-4 w-screen items-start justify-start">
+                    <WalletInformation />
+                    <PageSelector />
+                    {children}
+                  </div>
+                </SidebarProvider>
+              </SlotControlProvider>
             </WalletProvider>
           </SessionProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   );
 }
