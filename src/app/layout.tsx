@@ -6,7 +6,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { MainLayoutSidebar } from "@/components/Sidebar";
 import { SessionProvider } from "next-auth/react";
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import { WalletProvider } from "@/context/WalletContext";
+import { WalletProvider } from "@/contexts/WalletContext";
 import WalletInformation from "@/components/WalletInformation";
 import PageSelector from "@/components/PageSelector";
 const geistSans = Geist({

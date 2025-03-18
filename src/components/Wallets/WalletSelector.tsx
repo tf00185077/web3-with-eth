@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '../ui/button';
 import { Label } from '@radix-ui/react-label';
 import { Wallet } from '@prisma/client';
-import { useWallet } from '@/context/WalletContext';
+import { useWallet } from '@/contexts/WalletContext';
 export default function WalletSelector({ walletList }: { walletList: Wallet[]; }) {
   const { selectWallet } = useWallet();
   const [walletAddress, setWalletAddress] = useState<Wallet['address']>(walletList[0].address);
