@@ -1,11 +1,3 @@
-export const tokens = [
-  { name: "ETH", chains: ["Ethereum (ERC-20)", "Arbitrum (ERC-20)", "Optimism (ERC-20)", "BSC (BEP-20)"] },
-  { name: "USDT", chains: ["Ethereum (ERC-20)", "BSC (BEP-20)", "Polygon (ERC-20)", "Avalanche (ERC-20)"] },
-  { name: "USDC", chains: ["Ethereum (ERC-20)", "BSC (BEP-20)", "Polygon (ERC-20)", "Arbitrum (ERC-20)"] },
-  { name: "BNB", chains: ["BSC (BEP-20)"] },
-  { name: "MATIC", chains: ["Polygon (ERC-20)", "Ethereum (ERC-20)"] },
-];
-
 export const tokenDataMap: Record<string, Record<string, { contract: string | null, chainId: number; }>> = {
   "USDT": {
     "Ethereum (ERC-20)": { contract: "0xdac17f958d2ee523a2206206994597c13d831ec7", chainId: 1 },
