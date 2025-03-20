@@ -3,6 +3,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
     ports:
       - "3000:3000"
     depends_on:
@@ -12,8 +14,8 @@ services:
     env_file:
       - .env
     environment:
+      - FRONTEND_URL=http://frontend:3000
       - BACKEND_URL=http://backend:3001
-      - NEXT_PUBLIC_BACKEND_URL=http://backend:3001
       - AUTH_URL=http://localhost:3000
 
   backend:
@@ -27,7 +29,7 @@ services:
     env_file:
       - ./.env
     environment:
-      - FRONTEND_URL=http://frontend:3000
+      - FRONTEND_URL=http://localhost:3000
 
 networks:
   app-network:
