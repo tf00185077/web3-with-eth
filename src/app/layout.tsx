@@ -10,6 +10,8 @@ import { WalletProvider } from "@/contexts/WalletContext";
 import WalletInformation from "@/components/WalletInformation";
 import PageSelector from "@/components/PageSelector";
 import { SlotControlProvider } from "@/contexts/SlotControlContext";
+import { Toaster } from "@/components/ui/sonner"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -52,6 +54,7 @@ export default function RootLayout({
                     <PageSelector />
                     {children}
                   </div>
+                  <Toaster />
                 </SidebarProvider>
               </SlotControlProvider>
             </WalletProvider>
