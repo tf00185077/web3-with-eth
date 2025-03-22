@@ -8,10 +8,10 @@ type WalletContextType = {
   setWallets: (wallets: Wallet[]) => void;
   selectedWalletAddress: Wallet['address'];
   selectWallet: (walletAddress: Wallet['address']) => void;
-  walletInformation: tokenInformation[] | null;
+  walletInformation: TokenInformation[] | null;
   pnl: string;
 };
-export type tokenInformation = {
+export type TokenInformation = {
   contract_logo: string,
   contract_name: string,
   contract_ticker_symbol: string,
@@ -27,7 +27,7 @@ const WalletContext = createContext<WalletContextType | undefined>(undefined);
 export function WalletProvider({ children }: { children: ReactNode; }) {
   const [wallets, setWallets] = useState<Wallet[]>([]);
   const [selectedWalletAddress, setSelectedWalletAddress] = useState<Wallet['address']>('');
-  const [walletInformation, setWalletInformation] = useState<tokenInformation[] | null>(null);
+  const [walletInformation, setWalletInformation] = useState<TokenInformation[] | null>(null);
   const [pnl, setPnl] = useState<string>('');
   // 切換選中的錢包
   const selectWallet = (walletAddress: Wallet['address']) => {
@@ -44,7 +44,7 @@ export function WalletProvider({ children }: { children: ReactNode; }) {
           method: 'POST',
           body: JSON.stringify({ address: selectedWalletAddress }),
         });
-        const data = await walletInformation.json() as { tokens: tokenInformation[], pnl: string; };
+        const data = await walletInformation.json() as { tokens: TokenInformation[], pnl: string; };
         setWalletInformation(data.tokens);
         setPnl(data.pnl);
       };
