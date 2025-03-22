@@ -11,7 +11,7 @@ type WalletContextType = {
   walletInformation: tokenInformation[] | null;
   pnl: string;
 };
-type tokenInformation = {
+export type tokenInformation = {
   contract_logo: string,
   contract_name: string,
   contract_ticker_symbol: string,
@@ -20,7 +20,7 @@ type tokenInformation = {
   pretty_quote_24h: string,
   quote: number,
   quote_24hr: number,
-  token_quantity: number,
+  token_quantity: string,
 };
 const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
