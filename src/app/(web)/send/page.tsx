@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback } from "react";
 import TokenCard from "./components/TokenCard";
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { tokenDataMap } from "../@Receive/helper";
+import { tokenDataMap } from "../receive/helper";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSession } from "next-auth/react";

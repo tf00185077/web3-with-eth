@@ -1,9 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, } from "@/components/ui/card";
 import { TokenInformation } from "@/contexts/WalletContext";
 import Image from "next/image";
-const TokenCard = ({ token, onChooseToken }: { token: TokenInformation; onChooseToken: (token: TokenInformation) => void; }) => {
+const TokenCard = ({ token, onChooseToken }: { token: TokenInformation; onChooseToken?: (token: TokenInformation) => void; }) => {
   return (
-    <Card className="flex flex-row justify-between cursor-pointer hover:bg-accent transition-colors duration-200" onClick={() => onChooseToken(token)}>
+    <Card className="flex flex-row justify-between cursor-pointer hover:bg-accent transition-colors duration-200" onClick={() => onChooseToken?.(token)}>
       <CardHeader className="flex gap-2">
         <div className="min-w-[32px]">
           <Image src={token.contract_logo} alt={token.contract_ticker_symbol} width={100} height={100} />
