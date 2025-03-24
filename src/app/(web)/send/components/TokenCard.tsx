@@ -6,7 +6,7 @@ const TokenCard = ({ token, onChooseToken }: { token: TokenInformation; onChoose
     <Card className="flex flex-row justify-between cursor-pointer hover:bg-accent transition-colors duration-200" onClick={() => onChooseToken?.(token)}>
       <CardHeader className="flex gap-2">
         <div className="min-w-[32px]">
-          <Image src={token.contract_logo} alt={token.contract_ticker_symbol} width={100} height={100} />
+          <Image unoptimized src={token.contract_logo} alt={token.contract_ticker_symbol} width={100} height={100} />
         </div>
         <div className="flex flex-col">
           <CardTitle>{token.contract_ticker_symbol}</CardTitle>

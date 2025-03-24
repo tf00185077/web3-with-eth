@@ -30,8 +30,8 @@ export default function HistoryPage() {
     fetchTradeHistory();
   }, [selectedWalletAddress]);
   return (
-    error ? <div>{error}</div> :
-      isLoading ? <div>Loading...</div> :
+    isLoading ? <div>Loading...</div> :
+      error ? <div>{error}</div> :
         <div className="flex flex-col gap-4">
           {tradeHistory.map((item) => (
             <TradeImformation key={item.hash} tradeHistory={item} />
